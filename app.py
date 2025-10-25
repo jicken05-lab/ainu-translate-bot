@@ -30,7 +30,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_text = event.message.text
-    prompt = f"日本語の文章をアイヌ語に翻訳し、カタカナまたはローマ字で出力してください。さらに日本語で短い文化的説明を添えてください。特殊文字や記号は使わないでください。翻訳する文章：{user_text}"
+    prompt = f"Translate this Japanese sentence into Ainu language with cultural context: {user_text}"
+
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
